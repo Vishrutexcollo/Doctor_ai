@@ -16,4 +16,4 @@ class Visit(BaseModel):
     answers: list[AnsweredQuestion]
     previsit_summary: str | None = None
     soap_summary: str | None = None
-    postvisit_summary: str | None = None|None
+    postvisit_summary: str | None = None|
