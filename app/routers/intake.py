@@ -24,7 +24,7 @@ def generate_patient_id(name: str, phone: str) -> str:
 @router.post("/intake")
 def intake_form(details: PersonalDetails):
     db = get_mongo_client()
-    patients = db["patients"]
+    patients = db["clinicAi"]
 
     patient_id = generate_patient_id(details.name, details.mobile)
     visit_id = hashlib.sha1(datetime.now().isoformat().encode()).hexdigest()[:10]
