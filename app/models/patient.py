@@ -1,19 +1,8 @@
-from pydantic import BaseModel
+def get_patient_by_name_mobile(db, name: str, mobile: str):
+    return db.clinicAi.find_one({
+        "patient_info.name": name,
+        "patient_info.mobile": mobile
+    })
 
-class PatientCreate(BaseModel):
-    name: str
-    phone: str
-    age: int
-    gender: str
-
-class AnsweredQuestion(BaseModel):
-    question: str
-    answer: str
-
-class Visit(BaseModel):
-    visit_id: str
-    form_date: str
-    answers: list[AnsweredQuestion]
-    previsit_summary: str | None = None
-    soap_summary: str | None = None
-    postvisit_summary: str | None = None|
+def insert_patient_record(db, patient_record: dict):
+    db.clinicAi.insert_one(patient_record)
