@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 class PatientCreate(BaseModel):
     name: str
-    phone: str
+    phone: strA
     age: int
     gender: str
 
