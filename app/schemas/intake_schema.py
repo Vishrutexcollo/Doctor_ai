@@ -1,20 +1,10 @@
-# Intake form schema (Pydantic models)
-from pydantic import BaseModel, EmailStr
-from typing import List
+from pydantic import BaseModel, EmailStr, Field
+from typing import Optional
 
-
-class QuestionAnswer(BaseModel):
-question: str
-answer: str
-
-
-class IntakeRequest(BaseModel):
-name: str
-phone: str
-age: int
-gender: str
-email: EmailStr
-emergency_contact: str
-timestamp: str
-previsit_summary: str
-questions: List[QuestionAnswer]
+class PatientInfo(BaseModel):
+    name: str = Field(..., example="John Doe")
+    age: int = Field(..., gt=0, example=35)
+    gender: str = Field(..., example="Male")
+    mobile: str = Field(..., example="+919876543210")
+    email: Optional[EmailStr] = None
+    emergency_contact: Optional[str] = None
