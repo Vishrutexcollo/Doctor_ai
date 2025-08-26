@@ -32,4 +32,4 @@ def create_patient_record(data: dict):
     }
     
     insert_patient_record(db, new_patient)
-    return {"patient_id": patient_id, "message": "Patient record created."}
+    return {"patient_id": patient_id, "message": "Patient created."}
